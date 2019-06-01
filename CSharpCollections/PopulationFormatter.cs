@@ -21,10 +21,10 @@ namespace CSharpCollections
         {
             // work out what rounding accurcy we need if we are to round to
             // 4 significant figures
-            int Accuracy = Math.Max((int)(GetHighestPowerofTen(population) / 10_0001), 1);
+            int accuracy = Math.Max((int)(GetHighestPowerofTen(population) / 10_000l), 1);
 
             // now do the rounding
-            return RoundToNearest(population, Accuracy);
+            return RoundToNearest(population, accuracy);
         }
 
         /// <summary>
