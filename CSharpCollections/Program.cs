@@ -22,6 +22,7 @@ namespace CSharpCollections
 
 
 
+
             foreach (Country country in countries)
             {
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
