@@ -45,9 +45,11 @@ namespace CSharpCollections
 
             int maxToDisplay = userInput;
 
-            for (int i = 0; i < countries.Count; i++)
+            //for (int i = 0; i < countries.Count; i++)
+            for (int i = countries.Count - 1; i >= 0; i--)
             {
-                if(i > 0 && (i % maxToDisplay == 0))
+                int displayIndex = countries.Count - 1 - i;
+                if(displayIndex > 0 && (displayIndex % maxToDisplay == 0))
                 {
                     Console.WriteLine("Hit return to continue, anything else to quit>");
                     if (Console.ReadLine() != "")
@@ -55,7 +57,7 @@ namespace CSharpCollections
                 }
 
                 Country country = countries[i];
-                Console.WriteLine($"{i+1}: {PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+                Console.WriteLine($"{displayIndex+1}: {PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
             }
         }
     }
