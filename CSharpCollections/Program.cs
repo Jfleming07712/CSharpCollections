@@ -31,12 +31,32 @@ namespace CSharpCollections
 
             List<Country> countries = reader.ReadAllCountries();
 
-            foreach (Country country in countries)
+            // Asks the user how many countries they want to enumerate.
+
+            Console.Write("Enter the number of countries to display> ");
+            bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
+            if (!inputIsInt || userInput<= 0)
             {
-                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+                Console.WriteLine("You must type in a +ve integer. Exiting");
+                return;
             }
 
-            Console.WriteLine($"{countries.Count} countries");
+            //foreach (Country country in countries)
+
+            int maxToDisplay = userInput;
+
+            for (int i = 0; i < countries.Count; i++)
+            {
+                if(i > 0 && (i % maxToDisplay == 0))
+                {
+                    Console.WriteLine("Hit return to continue, anything else to quit>");
+                    if (Console.ReadLine() != "")
+                        break;
+                }
+
+                Country country = countries[i];
+                Console.WriteLine($"{i+1}: {PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            }
         }
     }
 }
