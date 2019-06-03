@@ -14,7 +14,6 @@ namespace CSharpCollections
         }
 
         public List<Country> ReadAllCountries()
-
         {
             List<Country> countries = new List<Country>();
 
