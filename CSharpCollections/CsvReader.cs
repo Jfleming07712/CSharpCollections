@@ -48,7 +48,7 @@ namespace CSharpCollections
                     break;
                 case 5:
                     name = parts[0] + ", " + parts[1];
-                    name = name.Replace("/", null).Trim();
+                    name = name.Replace("\"", null).Trim();
                     code = parts[2];
                     region = parts[3];
                     popText = parts[4];
